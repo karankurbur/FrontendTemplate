@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
+import Grid from '@material-ui/core/Grid';
 
-import Button from './components/Button';
-import doPost from './utils/api';
+import ButtonComponent from './components/Button';
+import { doPost } from './utils/api';
 
 class App extends React.Component {
   handleClick = async (e) => {
@@ -12,33 +13,37 @@ class App extends React.Component {
   }
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
+  // https://material-ui.com/components/grid/
   render() {
+    // const divStyle = {
+    //   backgroundColor: 'DodgerBlue',
+    //   padding: '10px',
+    //   fontFamily: 'Arial',
+    // };
+
     return (
-      <div
-        className="App"
-        style={{
-          // width: '50%',
-          // margin: '25%',
-          display: 'flex',
-          flexDirection: 'space-between',
-        }}
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="stretch"
       >
-        <span>test</span>
-        <Button
+        <ButtonComponent
           buttonText="Smile"
           handleClick={this.handleClick}
           style={{
             flex: 1,
           }}
         />
-        <Button
+        <ButtonComponent
           buttonText="Smile2"
           handleClick={this.handleClick}
           style={{
             flex: 3,
           }}
         />
-      </div>
+
+      </Grid>
     );
   }
 }

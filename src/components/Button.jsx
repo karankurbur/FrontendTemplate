@@ -1,20 +1,21 @@
 import React, { button } from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
-class Button extends React.PureComponent {
+class ButtonComponent extends React.PureComponent {
   render() {
     const { buttonText, handleClick } = this.props;
     return (
-      <button type="button" onClick={handleClick}>
+      <Button variant="contained" type="button" onClick={handleClick}>
         {buttonText}
-      </button>
+      </Button>
     );
   }
 }
 
-Button.propTypes = {
+ButtonComponent.propTypes = {
   buttonText: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 
-export default Button;
+export default ButtonComponent;

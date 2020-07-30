@@ -14,4 +14,20 @@ async function doPost(url, data) {
   }
 }
 
-export default doPost;
+async function doGet(url, data) {
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    return error;
+  }
+}
+
+export { doPost, doGet };
