@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { button } from 'react';
+import PropTypes from 'prop-types';
 
-export default class Button extends React.Component {
+class Button extends React.PureComponent {
   render() {
-    const { hello } = this.state;
-    return (<div>{hello}</div>);
+    const { buttonText, handleClick } = this.props;
+    return (
+      <button type="button" onClick={handleClick}>
+        {buttonText}
+      </button>
+    );
   }
 }
+
+Button.propTypes = {
+  buttonText: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
+
+export default Button;
